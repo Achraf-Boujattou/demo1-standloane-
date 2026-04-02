@@ -1,0 +1,71 @@
+.weather-bg {
+    --background: #fdfdfd; 
+}
+
+.weather-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.weather-card {
+    background-color: #fff1e1 !important; // Couleur beige/orangée très claire de l'image
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.purple-text {
+    color: #8a2be2 !important; // Couleur violette
+    font-weight: bold;
+    font-style: italic;
+}
+
+.title-large {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.country-text {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.weather-info-box {
+    background-color: white; // Retour au blanc comme demandé
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+ion-list {
+    background: transparent !important;
+}
+
+ion-item {
+    --background: transparent;
+    --border-color: #f0f0f0;
+    font-size: 1.1rem;
+    font-weight: 500;
+	width: 100%;
+}
+
+.centered-item-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: black !important;
+    text-align: center;
+
+    ion-icon {
+        font-size: 1.6rem;
+        margin-right: 12px;
+    }
+
+    span {
+        font-size: 1.3rem;
+    }
+}

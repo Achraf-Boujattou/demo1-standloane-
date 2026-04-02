@@ -1,0 +1,45 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>📸 Camera</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Camera</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Bouton principal -->
+  <ion-button expand="block" (click)="captureImage()">
+    📸 Take Picture
+  </ion-button>
+
+  <!-- Image affichée -->
+  <div *ngIf="capturedImage">
+
+    <img 
+      [src]="capturedImage"
+      alt="Captured Image"
+      class="preview-image"
+    />
+
+    <!-- Boutons actions -->
+    <ion-button expand="block" color="medium" (click)="captureImage()">
+      🔄 Reprendre
+    </ion-button>
+
+    <ion-button expand="block" color="danger" (click)="deleteImage()">
+      🗑️ Supprimer
+    </ion-button>
+
+  </div>
+
+</ion-content>

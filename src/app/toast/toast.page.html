@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!-- 🔙 bouton retour -->
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Toast</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Toast -->
+  <ion-button expand="block" (click)="showSuccess()">
+    SHOW TOAST !!!
+  </ion-button>
+
+  <!-- Alert -->
+  <ion-button expand="block" (click)="showAlert()">
+    SHOW ALERT !!!
+  </ion-button>
+
+  <!-- Confirm -->
+  <ion-button expand="block" (click)="showConfirm()">
+    SHOW CONFIRM ALERT !!!
+  </ion-button>
+
+  <!-- Prompt -->
+  <ion-button expand="block" (click)="showPrompt()">
+    SHOW PROMPT ALERT !!!
+  </ion-button>
+
+  <br><br>
+
+  <!-- Clipboard -->
+  <ion-input [(ngModel)]="val1" placeholder="Entrer texte"></ion-input>
+
+  <ion-button expand="block" (click)="writeToClipboard()">
+    COPY!!!
+  </ion-button>
+
+  <ion-button expand="block" (click)="checkClipboard()">
+    PASTE!!!!!!
+  </ion-button>
+
+  <br>
+
+  <ion-label>{{ val2 }}</ion-label>
+
+</ion-content>

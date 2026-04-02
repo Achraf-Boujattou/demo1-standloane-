@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!-- 🔙 Bouton retour -->
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>🎥 Video</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- 🎥 Bouton enregistrer -->
+  <ion-button expand="block" (click)="recordVideo()">
+    🎥 Enregistrer vidéo
+  </ion-button>
+
+  <!-- 📺 Affichage vidéo -->
+  <div *ngIf="videoPath">
+
+    <video width="100%" controls>
+      <source [src]="videoPath" type="video/mp4" />
+    </video>
+
+    <!-- 🔄 Reprendre -->
+    <ion-button expand="block" color="medium" (click)="recordVideo()">
+      🔄 Reprendre vidéo
+    </ion-button>
+
+    <!-- 🗑️ Supprimer -->
+    <ion-button expand="block" color="danger" (click)="deleteVideo()">
+      🗑️ Supprimer
+    </ion-button>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>🎮 Jeu du Hasard</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="rejouer()">
+        <ion-icon name="refresh-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="game-wrapper">
+
+    <!-- TITRE / HEADER ZONE -->
+    <div class="game-header">
+      <div class="game-badge">1 – 100</div>
+      <h1 class="game-title">Devinez le<br><span class="gradient-text">nombre secret</span></h1>
+      <p class="game-subtitle">Vous avez <strong>{{ maxEssais }}</strong> essais pour trouver le bon nombre.</p>
+    </div>
+
+    <!-- VIES (COEURS) -->
+    <div class="lives-row">
+      <span
+        *ngFor="let i of livesArray"
+        class="heart"
+        [class.dead]="i > (maxEssais - essais)">
+        ♥
+      </span>
+    </div>
+
+    <!-- BARRE DE PROGRESSION -->
+    <div class="progress-track">
+      <div class="progress-fill" [style.width.%]="(essais / maxEssais) * 100"></div>
+    </div>
+    <p class="progress-label">Essai {{ essais }} / {{ maxEssais }}</p>
+
+    <!-- INPUT -->
+    <div class="input-zone">
+      <ion-input
+        type="number"
+        placeholder="Entrer un nombre..."
+        [(ngModel)]="nombreSaisi"
+        [disabled]="jeuTermine"
+        class="game-input"
+        fill="outline">
+      </ion-input>
+    </div>
+
+    <!-- BOUTON VERIFIER -->
+    <button class="verify-btn" (click)="verifier()" [disabled]="jeuTermine">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      Vérifier
+    </button>
+
+    <!-- MESSAGE RESULTAT -->
+    <div class="result-card" *ngIf="message" [class.win]="jeuGagne" [class.lose]="jeuTermine && !jeuGagne">
+      <div class="result-emoji">{{ jeuGagne ? '🏆' : jeuTermine ? '💀' : hint === 'up' ? '📈' : '📉' }}</div>
+      <p class="result-msg">{{ message }}</p>
+    </div>
+
+    <!-- REJOUER -->
+    <button class="replay-btn" *ngIf="jeuTermine" (click)="rejouer()">
+      <ion-icon name="refresh-outline"></ion-icon>
+      Rejouer
+    </button>
+
+  </div>
+</ion-content>

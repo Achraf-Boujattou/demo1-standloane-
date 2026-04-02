@@ -1,0 +1,193 @@
+ion-content {
+  --background: radial-gradient(circle at top left, #1e293b, #0f172a);
+  font-family: 'Inter', sans-serif;
+}
+
+// Global section styling
+.section-container {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+  margin: 0 0 16px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &::before {
+    content: '';
+    width: 4px;
+    height: 18px;
+    background: #38bdf8;
+    border-radius: 2px;
+  }
+}
+
+// Glassmorphism Card
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  margin: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+
+  ion-card-header {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  ion-card-title {
+    color: #f8fafc;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  ion-card-content {
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+
+  img {
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+// Modern List
+ion-list {
+  background: transparent !important;
+  margin-bottom: 16px;
+
+  ion-item {
+    --background: rgba(255, 255, 255, 0.03);
+    --border-radius: 12px;
+    --margin-bottom: 8px;
+    --border-color: transparent;
+    --padding-start: 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &::part(native) {
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    h2 {
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    p {
+      color: #94a3b8;
+    }
+  }
+}
+
+// Accordion styling
+ion-accordion-group {
+  margin: 0 -8px;
+
+  ion-accordion {
+    background: transparent;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+
+    ion-item[slot="header"] {
+      --background: rgba(255, 255, 255, 0.05);
+      --color: #f8fafc;
+    }
+
+    .ion-padding[slot="content"] {
+      background: rgba(0, 0, 0, 0.2);
+      color: #cbd5e1;
+    }
+  }
+}
+
+// Progress and Spinners
+.progress-box {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 12px;
+  margin-top: 8px;
+
+  p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+  }
+}
+
+// Social Icons Container
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  margin-top: 32px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+
+  ion-icon {
+    font-size: 32px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.4) rotate(10deg);
+    }
+  }
+}
+
+// FAB custom styling
+ion-fab-button {
+  --background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+  --box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+}
+
+// Form elements styling
+ion-searchbar {
+  --background: rgba(255, 255, 255, 0.05);
+  --border-radius: 12px;
+  --color: white;
+  --placeholder-color: #94a3b8;
+  --icon-color: #38bdf8;
+  padding: 8px 16px;
+}
+
+ion-segment {
+  --background: rgba(255, 255, 255, 0.05);
+  margin: 8px 16px;
+  border-radius: 10px;
+
+  ion-segment-button {
+    --color: #94a3b8;
+    --color-checked: #38bdf8;
+    --indicator-color: #38bdf8;
+  }
+}
+
+ion-datetime {
+  --background: transparent;
+  width: 100%;
+  border-radius: 12px;
+}

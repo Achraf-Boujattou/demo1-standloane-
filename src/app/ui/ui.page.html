@@ -1,0 +1,236 @@
+<!-- HEADER -->
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>UI Showcase 🎨</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar color="dark">
+    <ion-searchbar
+      placeholder="Rechercher un composant..."
+      animated="true">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar color="dark">
+    <ion-segment value="all">
+      <ion-segment-button value="all">
+        <ion-label>Tous</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="forms">
+        <ion-label>Formulaires</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="layout">
+        <ion-label>Mise en page</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<!-- CONTENT -->
+<ion-content class="ion-padding">
+
+  <!-- ===== SECTION 1 : CARTES AVEC IMAGES ===== -->
+  <div class="section-container">
+    <p class="section-title">Cartes avec Images</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6">
+          <ion-card class="glass-card">
+            <img src="https://i.pinimg.com/736x/1e/e5/4a/1ee54a4591d1b35418a019b882685390.jpg" alt="image en ligne" />
+            <ion-card-header>
+              <ion-card-title>Image en ligne</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Image chargée depuis internet avec un design glassmorphism premium.
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="12" size-md="6">
+          <ion-card class="glass-card">
+            <img src="assets/images/image.jpg" alt="image locale" />
+            <ion-card-header>
+              <ion-card-title>Image locale</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Ceci est une image locale affichée dans une card moderne.
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- ===== SECTION 2 : EQUIPE (LIST + BADGE + AVATAR) ===== -->
+  <div class="section-container">
+    <p class="section-title">Équipe Projet</p>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="avatar" />
+        </ion-avatar>
+        <ion-label>
+          <h2>John Doe</h2>
+          <p>Développeur Full-Stack</p>
+        </ion-label>
+        <ion-badge color="primary" slot="end">Admin</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="avatar" />
+        </ion-avatar>
+        <ion-label>
+          <h2>Jane Smith</h2>
+          <p>Designer UX/UI</p>
+        </ion-label>
+        <ion-badge color="secondary" slot="end">User</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="avatar" />
+        </ion-avatar>
+        <ion-label>
+          <h2>Ali Hassan</h2>
+          <p>Chef de Projet</p>
+        </ion-label>
+        <ion-badge color="warning" slot="end">Manager</ion-badge>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- ===== SECTION 3 : ACCORDEONS ===== -->
+  <div class="section-container">
+    <p class="section-title">Accordéons</p>
+    <ion-accordion-group expand="inset">
+      <ion-accordion value="first">
+        <ion-item slot="header" color="dark">
+          <ion-icon name="information-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>Plus d'informations</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Ionic gère l'animation nativement ! Créez des panneaux déroulants élégants en quelques lignes.
+        </div>
+      </ion-accordion>
+      <ion-accordion value="second">
+        <ion-item slot="header" color="dark">
+          <ion-icon name="code-slash-outline" slot="start" color="secondary"></ion-icon>
+          <ion-label>Détails techniques</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Application "Standalone" développée en <strong>Ionic 8</strong> + <strong>Angular 18</strong> avec les Standalone Components.
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <!-- ===== SECTION 4 : FORMULAIRE ===== -->
+  <div class="section-container">
+    <p class="section-title">Paramètres & Formulaires</p>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-icon name="notifications-outline" slot="start" color="warning"></ion-icon>
+        <ion-toggle justify="space-between">Activer les notifications</ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="shield-checkmark-outline" slot="start" color="success"></ion-icon>
+        <ion-checkbox justify="space-between">Accepter les conditions</ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="person-outline" slot="start" color="tertiary"></ion-icon>
+        <ion-select label="Rôle" placeholder="Choisir un rôle">
+          <ion-select-option value="admin">Administrateur</ion-select-option>
+          <ion-select-option value="user">Utilisateur</ion-select-option>
+          <ion-select-option value="guest">Invité</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- ===== SECTION 5 : CALENDRIER ===== -->
+  <div class="section-container">
+    <p class="section-title">Agenda & Calendrier</p>
+    <ion-card class="glass-card">
+      <ion-card-content>
+        <ion-datetime presentation="date" color="primary"></ion-datetime>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- ===== SECTION 6 : INDICATEURS ===== -->
+  <div class="section-container">
+    <p class="section-title">Indicateurs de chargement</p>
+    <ion-card class="glass-card">
+      <ion-card-content>
+        <div class="progress-box">
+          <p>Barre de progression :</p>
+          <ion-progress-bar type="indeterminate" color="primary"></ion-progress-bar>
+        </div>
+        <div class="progress-box">
+          <p>Spinners :</p>
+          <ion-spinner name="crescent" color="primary"></ion-spinner>
+          <ion-spinner name="dots" color="secondary" style="margin-left: 12px;"></ion-spinner>
+          <ion-spinner name="bubbles" color="warning" style="margin-left: 12px;"></ion-spinner>
+          <ion-spinner name="lines" color="success" style="margin-left: 12px;"></ion-spinner>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- ===== SECTION 7 : TOAST ===== -->
+  <div class="section-container">
+    <p class="section-title">Notification (Toast)</p>
+    <ion-button expand="block" id="open-toast" color="primary">
+      <ion-icon name="notifications-outline" slot="start"></ion-icon>
+      Afficher une notification
+    </ion-button>
+    <ion-toast
+      trigger="open-toast"
+      message="🚀 Action réussie ! Voici votre toast."
+      duration="2500"
+      icon="globe"
+      position="bottom"
+      color="dark">
+    </ion-toast>
+  </div>
+
+  <!-- ===== SECTION 8 : ICONES SOCIALES ===== -->
+  <div class="section-container">
+    <p class="section-title">Icônes Sociales</p>
+    <div class="social-icons">
+      <ion-icon name="logo-facebook" color="primary"></ion-icon>
+      <ion-icon name="logo-amazon" color="warning"></ion-icon>
+      <ion-icon name="logo-youtube" color="danger"></ion-icon>
+    </div>
+  </div>
+
+  <!-- SPACER for FAB -->
+  <div style="height: 80px;"></div>
+
+</ion-content>
+
+<!-- ===== FAB (flottant) ===== -->
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button color="light" title="Partager">
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="light" title="Thème">
+      <ion-icon name="color-palette"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="light" title="Web">
+      <ion-icon name="globe"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>

@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>🧮 Calculatrice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="calc-wrapper">
+
+    <!-- ECRAN RESULTAT -->
+    <div class="calc-screen">
+      <div class="calc-expression">{{ num1 || '0' }} {{ activeOp }} {{ num2 || '' }}</div>
+      <div class="calc-result">{{ result }}</div>
+    </div>
+
+    <!-- INPUTS -->
+    <div class="inputs-row">
+      <div class="input-box">
+        <span class="input-label">Nombre A</span>
+        <ion-input
+          type="number"
+          placeholder="0"
+          [(ngModel)]="num1"
+          class="calc-input"
+          fill="outline">
+        </ion-input>
+      </div>
+      <div class="input-box">
+        <span class="input-label">Nombre B</span>
+        <ion-input
+          type="number"
+          placeholder="0"
+          [(ngModel)]="num2"
+          class="calc-input"
+          fill="outline">
+        </ion-input>
+      </div>
+    </div>
+
+    <!-- BOUTONS OPERATIONS -->
+    <div class="op-grid">
+      <button class="op-btn add-btn" (click)="add()">
+        <span class="op-symbol">+</span>
+        <span class="op-name">Addition</span>
+      </button>
+      <button class="op-btn sub-btn" (click)="subtract()">
+        <span class="op-symbol">−</span>
+        <span class="op-name">Soustraction</span>
+      </button>
+      <button class="op-btn mul-btn" (click)="multiply()">
+        <span class="op-symbol">×</span>
+        <span class="op-name">Multiplication</span>
+      </button>
+      <button class="op-btn div-btn" (click)="divide()">
+        <span class="op-symbol">÷</span>
+        <span class="op-name">Division</span>
+      </button>
+    </div>
+
+    <!-- RESET -->
+    <button class="reset-btn" (click)="reset()">
+      <ion-icon name="refresh-outline"></ion-icon>
+      Réinitialiser
+    </button>
+
+  </div>
+
+</ion-content>
