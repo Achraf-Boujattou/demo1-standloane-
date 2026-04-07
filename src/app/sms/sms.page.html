@@ -1,0 +1,57 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar class="sms-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Envoyer un SMS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="sms-bg">
+  <div class="sms-container">
+    <div class="header-section">
+      <div class="icon-circle">
+        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+      </div>
+      <h2>Messagerie</h2>
+      <p>Envoyez un message rapide à vos contacts</p>
+    </div>
+
+    <ion-card class="glass-card">
+      <ion-card-content>
+        <div class="input-group">
+          <ion-item lines="none" class="custom-item">
+            <ion-icon name="person-outline" slot="start"></ion-icon>
+            <ion-input
+              type="tel"
+              label="Numéro"
+              label-placement="stacked"
+              placeholder="06 XX XX XX XX"
+              [(ngModel)]="phoneNumber"
+              class="custom-input">
+            </ion-input>
+          </ion-item>
+        </div>
+
+        <div class="input-group">
+          <ion-item lines="none" class="custom-item">
+            <ion-textarea
+              label="Message"
+              label-placement="stacked"
+              placeholder="Tapez votre message ici..."
+              [autoGrow]="true"
+              rows="4"
+              [(ngModel)]="message"
+              class="custom-input">
+            </ion-textarea>
+          </ion-item>
+        </div>
+
+        <ion-button expand="block" class="send-button" (click)="sendSMS()">
+          Envoyer
+          <ion-icon name="send-outline" slot="end"></ion-icon>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

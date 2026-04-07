@@ -1,48 +1,55 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="dark">
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar class="transparent-toolbar">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-back-button defaultHref="home" color="light"></ion-back-button>
     </ion-buttons>
-    <ion-title>Météo</ion-title>
+    <ion-title color="light">Météo</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding weather-bg">
-  <div class="weather-wrapper">
-    <ion-card class="weather-card">
-      <ion-card-header class="ion-text-center">
-        <ion-card-title class="purple-text title-large">Weather Data!!</ion-card-title>
-        <ion-card-subtitle class="purple-text country-text">{{ country }}</ion-card-subtitle>
-      </ion-card-header>
-  
-      <ion-card-content>
-        <div class="weather-info-box" *ngIf="weatherData">
-          <ion-list lines="full">
-            <ion-item>
-              <div class="centered-item-box">
-                <ion-icon name="thermometer" color="danger"></ion-icon>
-                <span>{{ temp }}°C</span>
-              </div>
-            </ion-item>
-            <ion-item>
-              <div class="centered-item-box">
-                <ion-icon name="compass" color="secondary"></ion-icon>
-                <span>{{ pres }} hPa</span>
-              </div>
-            </ion-item>
-            <ion-item>
-              <div class="centered-item-box">
-                <ion-icon name="water" color="primary"></ion-icon>
-                <span>{{ hum }}%</span>
-              </div>
-            </ion-item>
-          </ion-list>
+<ion-content [fullscreen]="true" class="weather-bg">
+  <div class="search-container">
+    <ion-searchbar 
+      [(ngModel)]="searchQuery" 
+      (ionChange)="searchCity()" 
+      placeholder="Rechercher une ville..." 
+      class="custom-search">
+    </ion-searchbar>
+  </div>
+
+  <div class="weather-wrapper" *ngIf="weatherData">
+    <div class="glass-card">
+      <div class="location-header">
+        <ion-icon name="location-outline" class="location-icon"></ion-icon>
+        <h2 class="city-title">{{ city }}, {{ country }}</h2>
+      </div>
+
+      <div class="main-weather">
+        <div class="weather-icon-container">
+          <ion-icon name="partly-sunny-outline" class="main-icon"></ion-icon>
         </div>
-        <div *ngIf="!weatherData" class="ion-text-center">
-          <ion-spinner name="crescent"></ion-spinner>
-          <p>Chargement des données...</p>
+        <h1 class="temperature">{{ temp }}°</h1>
+        <p class="weather-description">{{ description }}</p>
+      </div>
+
+      <div class="weather-details">
+        <div class="detail-box">
+          <ion-icon name="water" class="detail-icon drop"></ion-icon>
+          <span class="detail-value">{{ hum }}%</span>
+          <span class="detail-label">Humidité</span>
         </div>
-      </ion-card-content>
-    </ion-card>
+        <div class="divider"></div>
+        <div class="detail-box">
+          <ion-icon name="leaf-outline" class="detail-icon wind"></ion-icon>
+          <span class="detail-value">{{ pres }}</span>
+          <span class="detail-label">Pression (hPa)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!weatherData" class="loading-wrapper">
+    <ion-spinner name="crescent" color="light"></ion-spinner>
+    <p class="loading-text">Chargement des données...</p>
   </div>
 </ion-content>

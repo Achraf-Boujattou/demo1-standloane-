@@ -52,6 +52,16 @@
       <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
     </ion-item>
 
+    <!-- 🆕 Plans (Google Maps) -->
+    <ion-item button class="menu-item" (click)="goToPlans()">
+      <div class="menu-icon plans-bg" slot="start">📍</div>
+      <ion-label>
+        <h2>Plans</h2>
+        <p>Afficher Google Maps</p>
+      </ion-label>
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+
     <!-- Camera -->
     <ion-item button class="menu-item" (click)="goToCamera()">
       <div class="menu-icon camera-bg" slot="start">📸</div>
@@ -68,6 +78,26 @@
       <ion-label>
         <h2>Video</h2>
         <p>Enregistrer une vidéo</p>
+      </ion-label>
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+
+    <!-- Call -->
+    <ion-item button class="menu-item" (click)="goToCall()">
+      <div class="menu-icon call-bg" slot="start">📞</div>
+      <ion-label>
+        <h2>Téléphone</h2>
+        <p>Passer un appel local</p>
+      </ion-label>
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+
+    <!-- SMS -->
+    <ion-item button class="menu-item" (click)="goToSms()">
+      <div class="menu-icon sms-bg" slot="start">💬</div>
+      <ion-label>
+        <h2>SMS</h2>
+        <p>Envoyer un message texte</p>
       </ion-label>
       <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
     </ion-item>

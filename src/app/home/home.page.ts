@@ -65,4 +65,16 @@ export class HomePage {
   goToToast(): void {
     this.router.navigate(['/toast']);
   }
+
+  goToSms(): void {
+    this.router.navigate(['/sms']);
+  }
+
+  goToCall(): void {
+    this.router.navigate(['/call']);
+  }
+
+  goToPlans() {
+  this.router.navigate(['/plans']);
+  }
 }

@@ -1,71 +1,165 @@
 .weather-bg {
-    --background: #fdfdfd; 
+    --background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.transparent-toolbar {
+    --background: transparent;
+    --border-color: transparent;
+}
+
+.search-container {
+    padding: 10px 20px 0 20px;
+}
+
+.custom-search {
+    --background: rgba(255, 255, 255, 0.15);
+    --color: white;
+    --placeholder-color: rgba(255, 255, 255, 0.7);
+    --icon-color: white;
+    --clear-button-color: white;
+    --border-radius: 20px;
+    --box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    
+    .searchbar-input {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
 }
 
 .weather-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: calc(100% - 70px);
+    padding: 20px;
 }
 
-.weather-card {
-    background-color: #fff1e1 !important; // Couleur beige/orangée très claire de l'image
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 400px;
-}
-
-.purple-text {
-    color: #8a2be2 !important; // Couleur violette
-    font-weight: bold;
-    font-style: italic;
-}
-
-.title-large {
-    font-size: 1.8rem;
-    margin-bottom: 5px;
-}
-
-.country-text {
-    font-size: 1.5rem;
-    margin-top: 0;
-}
-
-.weather-info-box {
-    background-color: white; // Retour au blanc comme demandé
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-ion-list {
-    background: transparent !important;
-}
-
-ion-item {
-    --background: transparent;
-    --border-color: #f0f0f0;
-    font-size: 1.1rem;
-    font-weight: 500;
-	width: 100%;
-}
-
-.centered-item-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 40px 20px;
     width: 100%;
-    color: black !important;
+    max-width: 400px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    color: white;
     text-align: center;
+}
 
-    ion-icon {
-        font-size: 1.6rem;
-        margin-right: 12px;
+.location-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+
+    .location-icon {
+        font-size: 1.5rem;
+        color: #f1c40f;
     }
 
-    span {
-        font-size: 1.3rem;
+    .city-title {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+}
+
+.main-weather {
+    margin-bottom: 50px;
+
+    .weather-icon-container {
+        margin-bottom: 20px;
+    }
+
+    .main-icon {
+        font-size: 7rem;
+        color: #f1c40f;
+        filter: drop-shadow(0 0 20px rgba(241, 196, 15, 0.6));
+    }
+
+    .temperature {
+        margin: 0;
+        font-size: 5.5rem;
+        font-weight: 700;
+        line-height: 1;
+        background: linear-gradient(180deg, #ffffff 0%, #d4d4d4 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .weather-description {
+        margin: 15px 0 0 0;
+        font-size: 1.25rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        opacity: 0.9;
+        letter-spacing: 0.5px;
+    }
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    padding: 20px 10px;
+
+    .detail-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 45%;
+
+        .detail-icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+
+            &.drop {
+                color: #4facfe;
+            }
+
+            &.wind {
+                color: #0bfd71; // changed from blue to a fresh green/cyan
+            }
+        }
+
+        .detail-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    }
+
+    .divider {
+        width: 1px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.loading-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+
+    .loading-text {
+        margin-top: 15px;
+        font-size: 1.1rem;
     }
 }

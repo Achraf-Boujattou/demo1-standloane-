@@ -1,0 +1,82 @@
+.plans-bg {
+    --background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.transparent-toolbar {
+    --background: transparent;
+    --border-color: transparent;
+}
+
+.title-center {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.map-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.search-container {
+    padding: 10px 20px 20px 20px;
+}
+
+.custom-search {
+    --background: rgba(255, 255, 255, 0.2);
+    --color: white;
+    --placeholder-color: rgba(255, 255, 255, 0.8);
+    --icon-color: white;
+    --clear-button-color: white;
+    --border-radius: 20px;
+    --box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    
+    .searchbar-input {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+}
+
+.modern-map-container {
+    flex: 1; /* Remplir l'espace restant */
+    width: 100%;
+    background-color: #f4f5f8;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 -5px 30px rgba(0,0,0,0.3);
+}
+
+.modern-map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Fix CSS for google places autocomplete dropdown inside ionic container */
+::ng-deep .pac-container {
+    z-index: 99999 !important;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+    font-family: inherit;
+    margin-top: 10px;
+}
+::ng-deep .pac-item {
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-top: 1px solid #f0f0f0;
+}
+::ng-deep .pac-item:hover {
+    background-color: #f8f9fa;
+}
+::ng-deep .pac-matched {
+    color: #1e3c72;
+    font-weight: bold;
+}
