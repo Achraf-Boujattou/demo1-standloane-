@@ -1,0 +1,121 @@
+<ion-header [translucent]="true" *ngIf="!isScanning" class="ion-no-border">
+  <ion-toolbar class="transparent-header">
+    <ion-buttons slot="start">
+      <ion-button color="light" (click)="goHome()" class="back-btn">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="premium-title">Scan QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" [class.premium-bg]="!isScanning" [class.transparent-bg]="isScanning">
+
+  <!-- SCANNER OVERLAY -->
+  <div class="scanner-active-ui" *ngIf="isScanning">
+    
+    <!-- Dimmed background with a clear hole in the middle -->
+    <div class="scanner-mask"></div>
+
+    <div class="scanner-frame">
+      <div class="corner top-left"></div>
+      <div class="corner top-right"></div>
+      <div class="corner bottom-left"></div>
+      <div class="corner bottom-right"></div>
+      <div class="laser-beam"></div>
+    </div>
+
+    <div class="scanner-text-wrapper">
+      <h2>Scan en cours</h2>
+      <p>Alignez le QR code dans le cadre</p>
+    </div>
+
+    <div class="scanner-controls">
+      <button class="glass-fab" (click)="toggleTorch()" [class.active]="isTorchOn">
+        <ion-icon [name]="isTorchOn ? 'flash' : 'flash-off'"></ion-icon>
+      </button>
+      <button class="glass-fab danger" (click)="stopScan()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- HOME / RESULT -->
+  <div class="content-wrapper" *ngIf="!isScanning">
+
+    <!-- Ambient Glow -->
+    <div class="ambient-glow"></div>
+
+    <!-- INITIAL STATE -->
+    <div class="welcome-container" *ngIf="!scannedResult">
+      
+      <div class="hero-illustration">
+        <div class="pulse-ring ring-1"></div>
+        <div class="pulse-ring ring-2"></div>
+        <div class="icon-box">
+          <ion-icon name="qr-code-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="hero-text">
+        <h1>Lecteur Intelligent</h1>
+        <p>Scannez rapidement vos QR codes, liens et textes en toute sécurité.</p>
+      </div>
+
+      <button class="start-scan-btn" (click)="startScan()">
+        <ion-icon name="qr-code-outline"></ion-icon>
+        Démarrer le scan
+      </button>
+
+    </div>
+
+    <!-- RESULT STATE -->
+    <div class="result-container" *ngIf="scannedResult">
+      
+      <div class="premium-glass-card">
+        
+        <div class="success-header">
+          <div class="success-icon-wrap">
+            <ion-icon name="checkmark-circle"></ion-icon>
+          </div>
+          <h3>Scan Réussi</h3>
+        </div>
+
+        <div class="result-body">
+          <div class="type-badge">
+            <ion-icon [name]="isUrl ? 'globe-outline' : 'text-outline'"></ion-icon>
+            <span>{{ isUrl ? 'Lien Web' : 'Texte Brut' }}</span>
+          </div>
+          
+          <div class="scanned-data">
+            {{ scannedResult }}
+          </div>
+        </div>
+
+        <div class="action-grid">
+          <button class="action-btn outline" (click)="copyToClipboard()">
+            <ion-icon name="copy-outline"></ion-icon> Copier
+          </button>
+          
+          <button class="action-btn primary" *ngIf="isUrl" (click)="openUrl()">
+            <ion-icon name="globe-outline"></ion-icon> Ouvrir
+          </button>
+        </div>
+
+        <div class="footer-actions">
+          <button class="rescan-btn" (click)="startScan()">
+            <ion-icon name="refresh-outline"></ion-icon> Nouveau Scan
+          </button>
+          <button class="rescan-btn" (click)="reset()">
+            <ion-icon name="close-outline"></ion-icon> Fermer
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

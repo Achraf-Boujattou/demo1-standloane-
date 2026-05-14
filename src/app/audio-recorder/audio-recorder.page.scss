@@ -1,0 +1,243 @@
+/* audio-recorder.page.scss */
+
+.dark-toolbar {
+
+  --background: #111827;
+
+  --color: white;
+
+  box-shadow:
+    0 2px 10px rgba(0,0,0,0.4);
+}
+
+.audio-page {
+
+  --background:
+    linear-gradient(
+      180deg,
+      #111827,
+      #0f172a
+    );
+
+  color: white;
+}
+
+.recorder-container {
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 24px;
+}
+
+.mic-wrapper {
+
+  position: relative;
+
+  width: 180px;
+
+  height: 180px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.mic-button {
+
+  width: 110px;
+
+  height: 110px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff1744,
+      #ff5252
+    );
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 10;
+
+  box-shadow:
+    0 0 30px
+    rgba(255, 23, 68, 0.5);
+}
+
+.mic-button ion-icon {
+
+  font-size: 55px;
+
+  color: white;
+}
+
+.pulse {
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  border:
+    3px solid rgba(255,255,255,0.2);
+
+  opacity: 0;
+
+  transform: scale(0.5);
+}
+
+.recording .pulse-1 {
+
+  width: 140px;
+
+  height: 140px;
+
+  animation:
+    pulseAnim 2s infinite;
+}
+
+.recording .pulse-2 {
+
+  width: 180px;
+
+  height: 180px;
+
+  animation:
+    pulseAnim 2s infinite 1s;
+}
+
+@keyframes pulseAnim {
+
+  0% {
+
+    transform: scale(0.5);
+
+    opacity: 0.7;
+  }
+
+  100% {
+
+    transform: scale(1.3);
+
+    opacity: 0;
+  }
+}
+
+.timer {
+
+  font-size: 42px;
+
+  font-weight: bold;
+
+  margin-bottom: 30px;
+
+  color: white;
+}
+
+.controls {
+
+  width: 100%;
+
+  max-width: 320px;
+}
+
+.controls ion-button {
+
+  margin-bottom: 16px;
+
+  height: 50px;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+}
+
+.waves {
+
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 6px;
+
+  height: 50px;
+
+  margin-bottom: 30px;
+}
+
+.waves span {
+
+  width: 6px;
+
+  background: #00e5ff;
+
+  border-radius: 10px;
+
+  animation:
+    wave 1s infinite ease-in-out;
+}
+
+.waves span:nth-child(1) {
+
+  height: 15px;
+
+  animation-delay: 0s;
+}
+
+.waves span:nth-child(2) {
+
+  height: 35px;
+
+  animation-delay: 0.2s;
+}
+
+.waves span:nth-child(3) {
+
+  height: 50px;
+
+  animation-delay: 0.4s;
+}
+
+.waves span:nth-child(4) {
+
+  height: 35px;
+
+  animation-delay: 0.6s;
+}
+
+.waves span:nth-child(5) {
+
+  height: 15px;
+
+  animation-delay: 0.8s;
+}
+
+@keyframes wave {
+
+  0%, 100% {
+
+    transform: scaleY(0.5);
+  }
+
+  50% {
+
+    transform: scaleY(1.5);
+  }
+}

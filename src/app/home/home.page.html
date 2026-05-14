@@ -1,117 +1,105 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>⚡ Demo Ionic</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="transparent-header">
+    <div class="header-content">
+      <div class="user-greeting">
+        <p class="greeting-text">Bienvenue,</p>
+        <h1 class="greeting-title">Demo Ionic ⚡</h1>
+      </div>
+      <div class="avatar-bg">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="home-premium-bg" [fullscreen]="true">
+  <div class="main-container">
+    
+    <div class="section-title-wrap">
+      <h2 class="section-title">Menu Principal</h2>
+      <p class="section-subtitle">Découvrez les fonctionnalités natives</p>
+    </div>
 
-  <ion-list lines="none" class="menu-list">
+    <div class="bento-grid">
+      <!-- Calculs -->
+      <div class="bento-card" (click)="goToCalculs()">
+        <div class="card-icon bg-blue"><ion-icon name="calculator"></ion-icon></div>
+        <h3>Calculs</h3>
+        <p>Mathématiques</p>
+      </div>
+      <!-- Jeu -->
+      <div class="bento-card" (click)="goToJeu()">
+        <div class="card-icon bg-purple"><ion-icon name="game-controller"></ion-icon></div>
+        <h3>Jeu</h3>
+        <p>Interactif</p>
+      </div>
+      <!-- UI -->
+      <div class="bento-card" (click)="goToUi()">
+        <div class="card-icon bg-green"><ion-icon name="color-palette"></ion-icon></div>
+        <h3>UI Showcase</h3>
+        <p>Composants</p>
+      </div>
+      <!-- Weather -->
+      <div class="bento-card" (click)="goToWeather()">
+        <div class="card-icon bg-cyan"><ion-icon name="partly-sunny"></ion-icon></div>
+        <h3>Météo</h3>
+        <p>Prévisions</p>
+      </div>
+      <!-- Plans -->
+      <div class="bento-card" (click)="goToPlans()">
+        <div class="card-icon bg-orange"><ion-icon name="map"></ion-icon></div>
+        <h3>Plans</h3>
+        <p>Google Maps</p>
+      </div>
+      <!-- Camera -->
+      <div class="bento-card" (click)="goToCamera()">
+        <div class="card-icon bg-red"><ion-icon name="camera"></ion-icon></div>
+        <h3>Caméra</h3>
+        <p>Photos</p>
+      </div>
+      <!-- Video -->
+      <div class="bento-card" (click)="goToVideo()">
+        <div class="card-icon bg-pink"><ion-icon name="videocam"></ion-icon></div>
+        <h3>Vidéo</h3>
+        <p>Enregistrement</p>
+      </div>
+      <!-- Torch -->
+      <div class="bento-card" (click)="goToTorch()">
+        <div class="card-icon bg-yellow"><ion-icon name="flashlight"></ion-icon></div>
+        <h3>Torche</h3>
+        <p>Lampe</p>
+      </div>
+      <!-- QR Scanner -->
+      <div class="bento-card" (click)="goToQrScanner()">
+        <div class="card-icon bg-teal"><ion-icon name="qr-code"></ion-icon></div>
+        <h3>QR Scan</h3>
+        <p>Lecteur</p>
+      </div>
+      <!-- Phone -->
+      <div class="bento-card" (click)="goToCall()">
+        <div class="card-icon bg-emerald"><ion-icon name="call"></ion-icon></div>
+        <h3>Appel</h3>
+        <p>Téléphone</p>
+      </div>
+      <!-- SMS -->
+      <div class="bento-card" (click)="goToSms()">
+        <div class="card-icon bg-indigo"><ion-icon name="chatbubbles"></ion-icon></div>
+        <h3>SMS</h3>
+        <p>Messages</p>
+      </div>
+      <!-- Audio -->
+      <div class="bento-card" (click)="goToAudio()">
+        <div class="card-icon bg-violet"><ion-icon name="mic"></ion-icon></div>
+        <h3>Audio</h3>
+        <p>Dictaphone</p>
+      </div>
+      <!-- Toast -->
+      <div class="bento-card col-span-2" (click)="goToToast()">
+        <div class="card-icon bg-slate"><ion-icon name="notifications"></ion-icon></div>
+        <h3>Toast Notifications</h3>
+        <p>Alertes</p>
+      </div>
 
-    <ion-list-header class="menu-header">
-      <ion-label>Menu Principal</ion-label>
-    </ion-list-header>
-
-    <!-- Calculs -->
-    <ion-item button class="menu-item" (click)="goToCalculs()">
-      <div class="menu-icon calculs-bg" slot="start">🧮</div>
-      <ion-label>
-        <h2>Calculs</h2>
-        <p>Opérations mathématiques</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-    <!-- Jeu -->
-    <ion-item button class="menu-item" (click)="goToJeu()">
-      <div class="menu-icon jeu-bg" slot="start">🎮</div>
-      <ion-label>
-        <h2>Jeu</h2>
-        <p>Lancez un jeu interactif</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-    <!-- UI -->
-    <ion-item button class="menu-item" (click)="goToUi()">
-      <div class="menu-icon ui-bg" slot="start">🎨</div>
-      <ion-label>
-        <h2>UI Showcase</h2>
-        <p>Composants Ionic modernes</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-    <!-- Weather -->
-    <ion-item button class="menu-item" (click)="goToWeather()">
-      <div class="menu-icon weather-bg" slot="start">🌤️</div>
-      <ion-label>
-        <h2>Weather</h2>
-        <p>Consulter la météo</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-    <!-- 🆕 Plans (Google Maps) -->
-    <ion-item button class="menu-item" (click)="goToPlans()">
-      <div class="menu-icon plans-bg" slot="start">📍</div>
-      <ion-label>
-        <h2>Plans</h2>
-        <p>Afficher Google Maps</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-    <!-- Camera -->
-    <ion-item button class="menu-item" (click)="goToCamera()">
-      <div class="menu-icon camera-bg" slot="start">📸</div>
-      <ion-label>
-        <h2>Camera</h2>
-        <p>Prendre une photo</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-    <!-- Video -->
-    <ion-item button class="menu-item" (click)="goToVideo()">
-      <div class="menu-icon video-bg" slot="start">🎥</div>
-      <ion-label>
-        <h2>Video</h2>
-        <p>Enregistrer une vidéo</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-    <!-- Call -->
-    <ion-item button class="menu-item" (click)="goToCall()">
-      <div class="menu-icon call-bg" slot="start">📞</div>
-      <ion-label>
-        <h2>Téléphone</h2>
-        <p>Passer un appel local</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-    <!-- SMS -->
-    <ion-item button class="menu-item" (click)="goToSms()">
-      <div class="menu-icon sms-bg" slot="start">💬</div>
-      <ion-label>
-        <h2>SMS</h2>
-        <p>Envoyer un message texte</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-    <!-- Toast -->
-    <ion-item button class="menu-item" (click)="goToToast()">
-      <div class="menu-icon toast-bg" slot="start">🍞</div>
-      <ion-label>
-        <h2>Toast</h2>
-        <p>Afficher des messages</p>
-      </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-    </ion-item>
-
-  </ion-list>
-
+    </div>
+  </div>
 </ion-content>

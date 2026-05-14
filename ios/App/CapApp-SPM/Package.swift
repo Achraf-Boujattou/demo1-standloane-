@@ -19,6 +19,7 @@ let package = Package(
         .package(name: "CapacitorKeyboard", path: "..\..\..\node_modules\@capacitor\keyboard"),
         .package(name: "CapacitorStatusBar", path: "..\..\..\node_modules\@capacitor\status-bar"),
         .package(name: "CapacitorToast", path: "..\..\..\node_modules\@capacitor\toast"),
+        .package(name: "CapawesomeCapacitorTorch", path: "..\..\..\node_modules\@capawesome\capacitor-torch"),
         .package(name: "CordovaPluginFile", path: "../../capacitor-cordova-ios-plugins/sources/CordovaPluginFile"),
         .package(name: "CordovaPluginMediaCapture", path: "../../capacitor-cordova-ios-plugins/sources/CordovaPluginMediaCapture")
     ],
@@ -35,6 +36,7 @@ let package = Package(
                 .product(name: "CapacitorKeyboard", package: "CapacitorKeyboard"),
                 .product(name: "CapacitorStatusBar", package: "CapacitorStatusBar"),
                 .product(name: "CapacitorToast", package: "CapacitorToast"),
+                .product(name: "CapawesomeCapacitorTorch", package: "CapawesomeCapacitorTorch"),
                 .product(name: "CordovaPluginFile", package: "CordovaPluginFile"),
                 .product(name: "CordovaPluginMediaCapture", package: "CordovaPluginMediaCapture")
             ]

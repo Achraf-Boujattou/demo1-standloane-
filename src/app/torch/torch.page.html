@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="transparent-header">
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()" class="back-btn">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="app-title">TORCH</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="dark-theme">
+  <div class="container" [class.torch-on]="isTorchOn">
+    
+    <!-- Background Glow Effect -->
+    <div class="ambient-glow"></div>
+
+    <!-- Main Power Button -->
+    <div class="power-button-wrapper">
+      <button class="power-button" (click)="toggle()" [class.active]="isTorchOn">
+        <div class="inner-circle">
+          <ion-icon name="power-outline" class="power-icon"></ion-icon>
+        </div>
+      </button>
+      
+      <!-- Ripple rings for active state -->
+      <div class="ripple ring-1" *ngIf="isTorchOn"></div>
+      <div class="ripple ring-2" *ngIf="isTorchOn"></div>
+    </div>
+
+    <!-- Status Text -->
+    <div class="status-indicator">
+      <span class="status-dot" [class.active]="isTorchOn"></span>
+      <span class="status-text">{{ isTorchOn ? 'ON' : 'OFF' }}</span>
+    </div>
+
+    <!-- Secondary Controls -->
+    <div class="secondary-controls">
+      <button class="side-btn" (click)="turnOn()" [disabled]="isTorchOn">
+        <ion-icon name="flash-outline"></ion-icon>
+      </button>
+      <button class="side-btn" (click)="turnOff()" [disabled]="!isTorchOn">
+        <ion-icon name="flash-off-outline"></ion-icon>
+      </button>
+    </div>
+
+  </div>
+</ion-content>

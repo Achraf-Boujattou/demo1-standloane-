@@ -1,0 +1,144 @@
+<!-- audio-recorder.page.html -->
+
+<ion-header translucent="true">
+
+  <ion-toolbar class="dark-toolbar">
+
+    <!-- BACK BUTTON -->
+    <ion-buttons slot="start">
+
+      <ion-button
+        color="light"
+        (click)="goHome()">
+
+        <ion-icon
+          name="arrow-back-outline"
+          slot="icon-only">
+        </ion-icon>
+
+      </ion-button>
+
+    </ion-buttons>
+
+    <ion-title>🎙️ Audio Recorder</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content fullscreen class="audio-page">
+
+  <div class="recorder-container">
+
+    <!-- MICROPHONE -->
+    <div
+      class="mic-wrapper"
+      [class.recording]="isRecording">
+
+      <div class="pulse pulse-1"></div>
+
+      <div class="pulse pulse-2"></div>
+
+      <div class="mic-button">
+
+        <ion-icon name="mic"></ion-icon>
+
+      </div>
+
+    </div>
+
+    <!-- TIMER -->
+    <div class="timer">
+
+      {{ formatTime(recordingTime) }}
+
+    </div>
+
+    <!-- WAVES -->
+    <div
+      class="waves"
+      *ngIf="isRecording">
+
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+
+      <!-- RECORD -->
+      <ion-button
+        expand="block"
+        color="success"
+        (click)="startRecording()"
+        [disabled]="isRecording">
+
+        <ion-icon
+          slot="start"
+          name="radio">
+        </ion-icon>
+
+        Enregistrer
+
+      </ion-button>
+
+      <!-- STOP -->
+      <ion-button
+        expand="block"
+        color="danger"
+        (click)="stopRecording()"
+        [disabled]="!isRecording">
+
+        <ion-icon
+          slot="start"
+          name="stop">
+        </ion-icon>
+
+        Stop
+
+      </ion-button>
+
+      <!-- PLAY / STOP -->
+      <ion-button
+        expand="block"
+        color="primary"
+        (click)="toggleAudioPlayback()"
+        [disabled]="!audioUrl">
+
+        <ion-icon
+          slot="start"
+          [name]="isPlaying ? 'pause' : 'play'">
+        </ion-icon>
+
+        {{ isPlaying ? 'Stop Lecture' : 'Lire Audio' }}
+
+      </ion-button>
+
+      <!-- DELETE -->
+
+      
+      <!-- <ion-button
+        expand="block"
+        color="medium"
+        fill="outline"
+        (click)="deleteAudio()"
+        [disabled]="!audioUrl">
+
+        <ion-icon
+          slot="start"
+          name="trash">
+        </ion-icon>
+
+        Supprimer
+
+      </ion-button> -->
+
+    </div>
+
+  </div>
+
+</ion-content>

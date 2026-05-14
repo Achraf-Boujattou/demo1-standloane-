@@ -1,0 +1,244 @@
+// Variables
+$bg-dark: #0f1115;
+$accent-color: #00e5ff;
+$accent-glow: rgba(0, 229, 255, 0.6);
+$button-surface: #1a1d24;
+$button-shadow: #0b0c0f;
+$button-highlight: #232730;
+
+ion-content.dark-theme {
+  --background: #{$bg-dark};
+}
+
+.transparent-header {
+  --background: transparent;
+  --border-color: transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.app-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.back-btn {
+  --color: #ffffff;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+// Ambient background glow when on
+.ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, $accent-glow 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container.torch-on .ambient-glow {
+  opacity: 1;
+}
+
+// Power Button (Neumorphic style)
+.power-button-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 240px;
+}
+
+.power-button {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: $button-surface;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    -8px -8px 16px $button-highlight,
+    8px 8px 16px $button-shadow;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 2;
+  
+  &:active {
+    box-shadow: 
+      inset -4px -4px 8px $button-highlight,
+      inset 4px 4px 8px $button-shadow;
+    transform: scale(0.95);
+  }
+
+  &.active {
+    box-shadow: 
+      0 0 20px $accent-glow,
+      inset -4px -4px 8px $button-highlight,
+      inset 4px 4px 8px $button-shadow;
+    
+    .inner-circle {
+      border-color: $accent-color;
+      box-shadow: inset 0 0 15px $accent-glow;
+    }
+    
+    .power-icon {
+      color: $accent-color;
+      filter: drop-shadow(0 0 8px $accent-color);
+    }
+  }
+}
+
+.inner-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.power-icon {
+  font-size: 64px;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+// Ripples
+.ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid $accent-color;
+  opacity: 0;
+  animation: ripple-anim 2s linear infinite;
+  pointer-events: none;
+}
+
+.ring-1 {
+  width: 160px;
+  height: 160px;
+  animation-delay: 0s;
+}
+
+.ring-2 {
+  width: 160px;
+  height: 160px;
+  animation-delay: 1s;
+}
+
+@keyframes ripple-anim {
+  0% {
+    width: 160px;
+    height: 160px;
+    opacity: 0.8;
+  }
+  100% {
+    width: 350px;
+    height: 350px;
+    opacity: 0;
+  }
+}
+
+// Status Indicator
+.status-indicator {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 24px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #555;
+  transition: all 0.3s ease;
+  
+  &.active {
+    background-color: $accent-color;
+    box-shadow: 0 0 10px $accent-color;
+  }
+}
+
+.status-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+// Secondary Controls
+.secondary-controls {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  gap: 30px;
+  z-index: 10;
+}
+
+.side-btn {
+  color: rgba(255, 255, 255, 0.4);
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &[disabled] {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  
+  ion-icon {
+    font-size: 24px;
+  }
+}
